@@ -47,11 +47,11 @@ router.put('/:id', async (req, res) => {
     // update a category by its `id` value
     try {
         // finds item by primary key and if nothing matches ID
-        const categoryData = await Category.update(req.params.id, {
-            // where: {
-            //     id: req.params.id,
-            // },
-            category_name: req.body.category_name,
+        const categoryData = await Category.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+
 
         });
         if (!categoryData) {
